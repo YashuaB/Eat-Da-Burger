@@ -1,4 +1,4 @@
-<img src = "/assets/img/burger.jpg" style = "width: 200px; height: 200px;">
+	<script src="public\js\app.js"></script>
 <h1>Eat Da Burger!</h1>
 
 <h2>Burgers that have not been devoured</h2>
@@ -6,7 +6,7 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
+      {{> burger-block devoured=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -16,7 +16,7 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
+      {{> burger-block devoured=false}}
     {{/if}}
   {{/each}}
 </ul>
