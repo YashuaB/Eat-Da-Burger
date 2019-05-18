@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.1.2",
@@ -25,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/YashuaB/Eat-Da-Burger/issues"
   },
-  "homepage": "https://github.com/YashuaB/Eat-Da-Burger#readme"
+  "homepage": "https://github.com/YashuaB/Eat-Da-Burger#readme",
+
+  "engines":{
+    " node":"8.11.3"}
 }
+
