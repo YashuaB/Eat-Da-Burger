@@ -4,11 +4,61 @@
 	<meta charset="UTF-8">
 		
 		<title>Eat Da Burger</title>
-		<script src="public\js\app.js"></script>
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
-	    
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	  {{!-- <script src="/public/js/app.js"></script>  --}}
 	</head>
 	<body>
 		{{{ body }}}
 	</body>
 </html>
+
+<script>
+	$(document).ready(function() {
+  
+  $(".devour-burger").on("click", function(event) {
+    var id = $(this).data("id")
+    var newBurger = $(this).data("newBurger")
+
+    var newBurgerState = {
+      devoured: newBurger
+    }
+
+    
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newBurgerState
+    }).then(
+      function() {
+        console.log("changed Burger to", newBurger)
+        
+        location.reload()
+      }
+    )
+  })
+
+  $(".create-form").on("submit", function(event) {
+  
+    event.preventDefault()
+
+    var newYummyBurger
+     = {
+      name: $("#ca").val(),
+    }
+
+    
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newYummyBurger
+
+    }).then(
+      function() {
+        console.log("created new burger")
+        
+        location.reload()
+      }
+    )
+  })
+
+})
+</script>
