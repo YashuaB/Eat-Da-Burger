@@ -1,64 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-		
-		<title>Eat Da Burger</title>
-		
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	  {{!-- <script src="/public/js/app.js"></script>  --}}
-	</head>
-	<body>
-		{{{ body }}}
-	</body>
-</html>
+<h1>Eat Da Burger!</h1>
 
-<script>
-	$(document).ready(function() {
-  
-  $(".devour-burger").on("click", function(event) {
-    var id = $(this).data("id")
-    var newBurger = $(this).data("newBurger")
+<h2>Burgers that have not been devoured</h2>
 
-    var newBurgerState = {
-      devoured: newBurger
-    }
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burger-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
 
-    
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: newBurgerState
-    }).then(
-      function() {
-        console.log("changed Burger to", newBurger)
-        
-        location.reload()
-      }
-    )
-  })
+<h2>Burgers that have been devoured</h2>
 
-  $(".create-form").on("submit", function(event) {
-  
-    event.preventDefault()
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burger-block devoured=false}}
+    {{/if}}
+  {{/each}}
+</ul>
 
-    var newYummyBurger
-     = {
-      name: $("#ca").val(),
-    }
+<h2>Add a Burger</h2>
+<form class="create-form">
 
-    
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newYummyBurger
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
 
-    }).then(
-      function() {
-        console.log("created new burger")
-        
-        location.reload()
-      }
-    )
-  })
-
-})
-</script>
+  <button type="submit">Add Burger</button>
+</form>
