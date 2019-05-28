@@ -3,14 +3,18 @@ require("dotenv").config()
 
 var mysql = require("mysql");
 
-var connection;
-
+if (process.env,JAWSDB_URL){
+  var connection = mysql.createConnection(process.env.JAWSDB_URL)
+}else{
+  var connection;
   connection = mysql.createConnection({
     host: process.env.HOST,
     user: "root",
     password:process.env.PASS,
     database: "burgers_db"
-  })
+  })}
+
+
 
 
 
