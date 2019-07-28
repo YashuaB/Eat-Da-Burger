@@ -4,9 +4,8 @@ Is a restaurant app that lets users input the names of burgers they'd like to ea
 
 
 ## Demo
-```
-Live Site: https://hidden-beyond-46898.herokuapp.com/
-```
+
+Live Site: [Eat-Da-Burger](https://hidden-beyond-46898.herokuapp.com/)
 ## Built With
 Node.js
 mySQL
