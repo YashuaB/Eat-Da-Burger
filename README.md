@@ -5,7 +5,8 @@ Is a restaurant app that lets users input the names of burgers they'd like to ea
 
 ## Demo
 
-Live Site: [Eat-Da-Burger](https://hidden-beyond-46898.herokuapp.com/)
+Demo of app: [Eat-Da-Burger](https://hidden-beyond-46898.herokuapp.com/)
+
 ## Built With
 Node.js
 mySQL
@@ -17,7 +18,6 @@ What things you need to install the software and how to install them
 ```
 Node.js
 mySQL
-
 ```
 ### Installing
 To run the application locally, first clone this repository with the following command.
